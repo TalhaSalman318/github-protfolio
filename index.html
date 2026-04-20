@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Talha Salman | GitHub profile landing page showcasing repositories, skills, and project highlights." />
+  <meta name="theme-color" content="#07101c" />
+  <meta property="og:title" content="Talha Salman — GitHub Portfolio" />
+  <meta property="og:description" content="Explore the GitHub profile of TalhaSalman318 with repositories, languages, and project highlights." />
+  <meta property="og:image" content="https://avatars.githubusercontent.com/u/190712044?v=4" />
+  <meta property="og:type" content="website" />
+  <title>Talha Salman — GitHub Portfolio</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='24' fill='%23121827'/%3E%3Cpath d='M35 36 L50 30 L65 36 M50 30 L50 66' stroke='%23a1c4ff' stroke-width='7' stroke-linecap='round'/%3E%3C/svg%3E" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      color-scheme: dark;
+      font-family: 'Inter', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: radial-gradient(circle at top right, rgba(67, 110, 255, 0.16), transparent 26%),
+                  radial-gradient(circle at 0% 50%, rgba(80, 255, 210, 0.1), transparent 20%),
+                  #07101c;
+      color: #edf2ff;
+      font-size: 16px;
+      line-height: 1.6;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html, body {
+      min-height: 100%;
+      margin: 0;
+      background: #07101c;
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      background: radial-gradient(circle at 80% 10%, rgba(126, 150, 255, 0.14), transparent 18%),
+                  radial-gradient(circle at 10% 15%, rgba(86, 246, 195, 0.08), transparent 16%);
+      z-index: 0;
+    }
+
+    body {
+      position: relative;
+      z-index: 1;
+      overflow-x: hidden;
+    }
+
+    .page {
+      width: min(1200px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 40px 0 48px;
+    }
+
+    .hero {
+      display: grid;
+      gap: 32px;
+      align-items: center;
+      padding: 40px 0 28px;
+    }
+
+    .hero__banner {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 999px;
+      padding: 10px 16px;
+      max-width: fit-content;
+      backdrop-filter: blur(14px);
+    }
+
+    .hero__banner span {
+      color: rgba(255,255,255,0.78);
+      font-size: 0.82rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .hero__title {
+      font-size: clamp(3rem, 5vw, 5.1rem);
+      line-height: 0.98;
+      max-width: 11ch;
+      letter-spacing: -0.05em;
+      margin: 0;
+    }
+
+    .hero__description {
+      max-width: 680px;
+      color: rgba(237, 242, 255, 0.82);
+      font-size: 1.05rem;
+    }
+
+    .hero__actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.95rem 1.8rem;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.14);
+      background: linear-gradient(135deg, rgba(95, 137, 255, 0.96), rgba(62, 180, 255, 0.15));
+      color: #fff;
+      text-decoration: none;
+      font-weight: 700;
+      transition: transform 0.22s ease, box-shadow 0.22s ease, background 0.22s ease;
+      box-shadow: 0 18px 40px rgba(47, 82, 255, 0.18);
+    }
+
+    .button:hover,
+    .button:focus-visible {
+      transform: translateY(-2px);
+      box-shadow: 0 22px 48px rgba(47, 82, 255, 0.26);
+    }
+
+    .hero__stat-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+      margin-top: 28px;
+    }
+
+    .stat-card {
+      padding: 22px 24px;
+      border-radius: 24px;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.08);
+      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.16);
+      backdrop-filter: blur(16px);
+    }
+
+    .stat-value {
+      font-size: 2rem;
+      font-weight: 800;
+      margin-bottom: 8px;
+    }
+
+    .stat-label {
+      color: rgba(237, 242, 255, 0.72);
+      font-size: 0.95rem;
+    }
+
+    .profile-preview {
+      display: grid;
+      gap: 18px;
+      padding: 32px;
+      border-radius: 32px;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.08);
+      box-shadow: 0 32px 90px rgba(0, 0, 0, 0.2);
+      backdrop-filter: blur(22px);
+    }
+
+    .profile-card {
+      display: grid;
+      gap: 18px;
+    }
+
+    .profile-top {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+    }
+
+    .profile-avatar {
+      width: 88px;
+      height: 88px;
+      border-radius: 28px;
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,0.14);
+      box-shadow: 0 14px 40px rgba(0, 0, 0, 0.18);
+    }
+
+    .profile-avatar img {
+      width: 100%;
+      display: block;
+    }
+
+    .profile-title {
+      display: grid;
+      gap: 6px;
+    }
+
+    .profile-title h2 {
+      margin: 0;
+      font-size: 1.55rem;
+      letter-spacing: -0.03em;
+    }
+
+    .profile-title p {
+      margin: 0;
+      color: rgba(237, 242, 255, 0.74);
+      font-size: 0.97rem;
+    }
+
+    .profile-badges {
+      display: inline-flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .badge {
+      padding: 10px 14px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.08);
+      color: #d7e2ff;
+      font-size: 0.88rem;
+    }
+
+    .section-title {
+      margin: 0 0 16px;
+      font-size: 1.4rem;
+      letter-spacing: -0.03em;
+    }
+
+    .section-copy {
+      color: rgba(237, 242, 255, 0.74);
+      margin-bottom: 28px;
+    }
+
+    .pill-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .pill-list li {
+      padding: 10px 14px;
+      border-radius: 999px;
+      background: rgba(110, 180, 255, 0.12);
+      color: #d7e2ff;
+      border: 1px solid rgba(110, 180, 255, 0.18);
+      font-size: 0.92rem;
+    }
+
+    .repo-grid {
+      display: grid;
+      gap: 20px;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    }
+
+    .repo-card {
+      padding: 24px;
+      border-radius: 28px;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.08);
+      backdrop-filter: blur(14px);
+      transition: transform 0.2s ease, border-color 0.2s ease;
+    }
+
+    .repo-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(113, 161, 255, 0.22);
+    }
+
+    .repo-card h3 {
+      margin: 0 0 10px;
+      font-size: 1.15rem;
+    }
+
+    .repo-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      color: rgba(237, 242, 255, 0.68);
+      font-size: 0.92rem;
+    }
+
+    .repo-meta span {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .repo-link {
+      margin-top: 18px;
+      display: inline-flex;
+      color: #b5d6ff;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .repo-link:hover {
+      text-decoration: underline;
+    }
+
+    .all-repos {
+      margin-top: 14px;
+      padding: 20px;
+      border-radius: 24px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.07);
+    }
+
+    .repo-list {
+      display: grid;
+      gap: 12px;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .repo-list li {
+      display: flex;
+      justify-content: space-between;
+      gap: 18px;
+      padding: 14px 16px;
+      border-radius: 18px;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .repo-list a {
+      color: #e8f0ff;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .repo-meta-compact {
+      color: rgba(237, 242, 255, 0.62);
+      font-size: 0.89rem;
+      white-space: nowrap;
+    }
+
+    .footer {
+      margin-top: 56px;
+      padding-top: 26px;
+      border-top: 1px solid rgba(255,255,255,0.08);
+      color: rgba(237, 242, 255, 0.6);
+      text-align: center;
+      font-size: 0.95rem;
+    }
+
+    @media (min-width: 900px) {
+      .hero {
+        grid-template-columns: 1.1fr 0.9fr;
+        align-items: start;
+      }
+
+      .hero__stat-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 720px) {
+      .hero__stat-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 620px) {
+      .page {
+        width: calc(100% - 24px);
+      }
+
+      .hero {
+        gap: 24px;
+      }
+
+      .hero__stat-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .repo-meta {
+        flex-direction: column;
+        gap: 6px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <section class="hero">
+      <div>
+        <div class="hero__banner"><span>GitHub Profile</span></div>
+        <h1 class="hero__title">Talha Salman<br /><span style="color: #8db8ff;">@TalhaSalman318</span></h1>
+        <p class="hero__description">Karachi-based software engineer building clean and efficient applications across C++, Dart, TypeScript, Python, and Java. Explore curated projects, repository highlights, and active development activity.</p>
+        <div class="hero__actions">
+          <a class="button" href="https://github.com/TalhaSalman318" target="_blank" rel="noreferrer">View GitHub Profile</a>
+          <a class="button" href="#projects" style="background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.12);">Explore Repositories</a>
+        </div>
+        <div class="hero__stat-grid">
+          <div class="stat-card"><div class="stat-value">19</div><div class="stat-label">Public Repositories</div></div>
+          <div class="stat-card"><div class="stat-value">1</div><div class="stat-label">GitHub Followers</div></div>
+          <div class="stat-card"><div class="stat-value">2</div><div class="stat-label">Following</div></div>
+        </div>
+      </div>
+
+      <aside class="profile-preview">
+        <div class="profile-card">
+          <div class="profile-top">
+            <div class="profile-avatar"><img src="https://avatars.githubusercontent.com/u/190712044?v=4" alt="Talha Salman avatar" /></div>
+            <div class="profile-title">
+              <h2>Talha Salman</h2>
+              <p>Software engineer from Karachi focused on real-world apps and clean architecture.</p>
+            </div>
+          </div>
+          <div class="profile-badges">
+            <div class="badge">Karachi</div>
+            <div class="badge">C++ • Dart • TypeScript</div>
+            <div class="badge">Python • Java</div>
+          </div>
+        </div>
+
+        <div>
+          <h3 class="section-title">Featured strengths</h3>
+          <p class="section-copy">Delivered consistent app development across desktop and web, with smart repository organization and active updates across multiple languages.</p>
+          <ul class="pill-list">
+            <li>Clean repository structure</li>
+            <li>Frequent updates</li>
+            <li>Cross-platform apps</li>
+            <li>Performance-first mindset</li>
+          </ul>
+        </div>
+      </aside>
+    </section>
+
+    <section id="projects" style="margin-top: 40px;">
+      <div>
+        <h2 class="section-title">Top repositories</h2>
+        <p class="section-copy">A snapshot of active repositories and recent work, including app interfaces, utilities, and core language projects.</p>
+      </div>
+      <div class="repo-grid">
+        <article class="repo-card">
+          <h3>TrackLet</h3>
+          <div class="repo-meta"><span>Language: C++</span><span>Updated 15 hours ago</span></div>
+          <p class="section-copy">A recent C++ project focused on tracking logic and fast performance, demonstrating advanced problem solving and code clarity.</p>
+          <a class="repo-link" href="https://github.com/TalhaSalman318/TrackLet" target="_blank" rel="noreferrer">View repository</a>
+        </article>
+        <article class="repo-card">
+          <h3>Calculator</h3>
+          <div class="repo-meta"><span>Language: C++</span><span>Updated last week</span></div>
+          <p class="section-copy">A precise calculator app built with strong language fundamentals and a polished implementation in C++.</p>
+          <a class="repo-link" href="https://github.com/TalhaSalman318/Calculator" target="_blank" rel="noreferrer">View repository</a>
+        </article>
+        <article class="repo-card">
+          <h3>Python</h3>
+          <div class="repo-meta"><span>Language: Python</span><span>Updated on Mar 2</span></div>
+          <p class="section-copy">A collection of Python utilities and applications highlighting scripting, automation, and data-focused development.</p>
+          <a class="repo-link" href="https://github.com/TalhaSalman318/Python" target="_blank" rel="noreferrer">View repository</a>
+        </article>
+        <article class="repo-card">
+          <h3>SkyLine-Monarch</h3>
+          <div class="repo-meta"><span>Language: TypeScript</span><span>Updated on Feb 25</span></div>
+          <p class="section-copy">A modern TypeScript repository for interactive UI or web-driven functionality with attention to structural design.</p>
+          <a class="repo-link" href="https://github.com/TalhaSalman318/SkyLine-Monarch" target="_blank" rel="noreferrer">View repository</a>
+        </article>
+        <article class="repo-card">
+          <h3>Movie-Web</h3>
+          <div class="repo-meta"><span>Language: TypeScript</span><span>Updated on Feb 25</span></div>
+          <p class="section-copy">A TypeScript-based movie web experience showcasing frontend design and interaction patterns.</p>
+          <a class="repo-link" href="https://github.com/TalhaSalman318/Movie-Web" target="_blank" rel="noreferrer">View repository</a>
+        </article>
+        <article class="repo-card">
+          <h3>Product-App</h3>
+          <div class="repo-meta"><span>Language: Dart</span><span>Updated on Nov 20, 2025</span></div>
+          <p class="section-copy">A Dart product application demonstrating mobile-first UI and stateful architecture for modern apps.</p>
+          <a class="repo-link" href="https://github.com/TalhaSalman318/Product-App" target="_blank" rel="noreferrer">View repository</a>
+        </article>
+      </div>
+
+      <div class="all-repos">
+        <h3 class="section-title">All public repositories</h3>
+        <ul class="repo-list">
+          <li><a href="https://github.com/TalhaSalman318/Dio" target="_blank" rel="noreferrer">Dio</a><span class="repo-meta-compact">C++ · Updated Oct 15, 2025</span></li>
+          <li><a href="https://github.com/TalhaSalman318/Notes_keeper" target="_blank" rel="noreferrer">Notes_keeper</a><span class="repo-meta-compact">C++ · Updated Sep 29, 2025</span></li>
+          <li><a href="https://github.com/TalhaSalman318/Blog-App" target="_blank" rel="noreferrer">Blog-App</a><span class="repo-meta-compact">Dart · Updated Sep 29, 2025</span></li>
+          <li><a href="https://github.com/TalhaSalman318/Book-Hunter" target="_blank" rel="noreferrer">Book-Hunter</a><span class="repo-meta-compact">Dart · Updated Sep 27, 2025</span></li>
+          <li><a href="https://github.com/TalhaSalman318/MVVM_Provider" target="_blank" rel="noreferrer">MVVM_Provider</a><span class="repo-meta-compact">Dart · Updated Jul 9, 2025</span></li>
+          <li><a href="https://github.com/TalhaSalman318/Provider" target="_blank" rel="noreferrer">Provider</a><span class="repo-meta-compact">C++ · Updated Jul 9, 2025</span></li>
+          <li><a href="https://github.com/TalhaSalman318/Simple_Text_Edotor" target="_blank" rel="noreferrer">Simple_Text_Edotor</a><span class="repo-meta-compact">Java · Updated May 25, 2025</span></li>
+          <li><a href="https://github.com/TalhaSalman318/Checkout-System" target="_blank" rel="noreferrer">Checkout-System</a><span class="repo-meta-compact">Java · Updated May 23, 2025</span></li>
+          <li><a href="https://github.com/TalhaSalman318/Api_app" target="_blank" rel="noreferrer">Api_app</a><span class="repo-meta-compact">Dart · Updated Apr 27, 2025</span></li>
+          <li><a href="https://github.com/TalhaSalman318/Food-App-Ui" target="_blank" rel="noreferrer">Food-App-Ui</a><span class="repo-meta-compact">Dart · Updated Mar 20, 2025</span></li>
+          <li><a href="https://github.com/TalhaSalman318/Dart_Project_1" target="_blank" rel="noreferrer">Dart_Project_1</a><span class="repo-meta-compact">Dart · Updated Jan 22, 2025</span></li>
+          <li><a href="https://github.com/TalhaSalman318/Assignments" target="_blank" rel="noreferrer">Assignments</a><span class="repo-meta-compact">Dart · Updated Dec 11, 2024</span></li>
+          <li><a href="https://github.com/TalhaSalman318/Assignment-2" target="_blank" rel="noreferrer">Assignment-2</a><span class="repo-meta-compact">Dart · Updated Dec 11, 2024</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <footer class="footer">Built for GitHub profile showcase · &copy; 2026 Talha Salman · <a href="https://github.com/TalhaSalman318" target="_blank" rel="noreferrer" style="color: #a8c6ff; text-decoration: none;">github.com/TalhaSalman318</a></footer>
+  </main>
+</body>
+</html>
